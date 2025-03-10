@@ -1,0 +1,39 @@
+services:
+  onboarding:
+    image: onboarding
+    user: root
+    depends_on:
+      - postgres
+    volumes:
+      - jmix:/workspace/.jmix
+    environment:
+      - MAIN_DATASOURCE_URL=jdbc:postgresql://postgres/onboarding
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  postgres:
+    image: postgres:alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=onboarding
+
+  pgadmin:
+    image: dpage/pgadmin4:9.1
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@example.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_LISTEN_PORT: 8000
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
+
+volumes:
+  jmix:
+  postgres:
+  pgadmin:
