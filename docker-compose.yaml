@@ -4,7 +4,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - jmix:/opt/onboarding/.jmix
+      - jmix:/.jmix
     environment:
       - MAIN_DATASOURCE_URL=jdbc:postgresql://postgres/onboarding
     ports:
