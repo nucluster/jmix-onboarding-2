@@ -1,0 +1,16 @@
+[Unit]
+Description=onboarding
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+User=vladimir
+Group=docker
+WorkingDirectory=/home/vladimir/jmix-onboarding-2
+ExecStartPre=docker compose down
+ExecStart=docker compose up
+ExecStop=docker compose down
+
+[Install]
+WantedBy=multi-user.target
