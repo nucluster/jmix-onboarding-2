@@ -20,7 +20,7 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 @Push
-@Theme(value = "onboarding")
+@Theme(value = "onboarding", variant = "dark")
 @PWA(name = "Onboarding", shortName = "Onboarding")
 @SpringBootApplication
 public class OnboardingApplication implements AppShellConfigurator {
