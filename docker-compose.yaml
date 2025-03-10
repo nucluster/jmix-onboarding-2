@@ -1,7 +1,6 @@
 services:
   onboarding:
     image: onboarding
-    user: root
     depends_on:
       - postgres
     volumes:
