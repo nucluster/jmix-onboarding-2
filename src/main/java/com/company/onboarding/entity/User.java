@@ -2,6 +2,7 @@ package com.company.onboarding.entity;
 
 import io.jmix.core.FileRef;
 import io.jmix.core.HasTimeZone;
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.Secret;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.SystemLevel;
@@ -10,7 +11,6 @@ import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import io.jmix.core.metamodel.annotation.OnDelete;
-import io.jmix.core.DeletePolicy;
 import io.jmix.security.authentication.JmixUserDetails;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
