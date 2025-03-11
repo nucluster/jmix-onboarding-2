@@ -1,6 +1,8 @@
 package com.company.onboarding.entity;
 
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import jakarta.persistence.*;
@@ -30,6 +32,7 @@ public class Department {
     @NotNull
     private String name;
 
+    @OnDeleteInverse(DeletePolicy.UNLINK)
     @JoinColumn(name = "HR_MANAGER_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private User hrManager;

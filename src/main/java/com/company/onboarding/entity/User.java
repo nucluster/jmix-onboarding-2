@@ -6,6 +6,7 @@ import io.jmix.core.HasTimeZone;
 import io.jmix.core.annotation.Secret;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDelete;
+import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.entity.annotation.SystemLevel;
 import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
@@ -66,9 +67,9 @@ public class User implements JmixUserDetails, HasTimeZone {
     @Column(name = "ONBOARDING_STATUS")
     private Integer onboardingStatus;
 
-    @OnDelete(DeletePolicy.UNLINK)
-    @JoinColumn(name = "DEPARTMENT_ID")
+    @OnDeleteInverse(DeletePolicy.UNLINK)
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
 
     @OnDelete(DeletePolicy.CASCADE)
