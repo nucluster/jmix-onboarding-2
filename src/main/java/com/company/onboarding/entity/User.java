@@ -64,10 +64,12 @@ public class User implements JmixUserDetails, HasTimeZone {
     @Column(name = "ONBOARDING_STATUS")
     private Integer onboardingStatus;
 
+    @OnDelete(DeletePolicy.UNLINK)
     @JoinColumn(name = "DEPARTMENT_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
 
+    @OnDelete(DeletePolicy.CASCADE)
     @OrderBy("sortValue")
     @Composition
     @OneToMany(mappedBy = "user")
